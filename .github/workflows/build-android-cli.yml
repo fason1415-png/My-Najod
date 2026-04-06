@@ -1,0 +1,51 @@
+name: Build Android CLI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-android-cli:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Build APK via CLI
+        working-directory: mobile_app_flutter
+        shell: bash
+        run: |
+          set -e
+          flutter --version
+          flutter create . --platforms=android
+          if [ -f android_manifest_template.xml ]; then
+            cp android_manifest_template.xml android/app/src/main/AndroidManifest.xml
+          fi
+          flutter pub get
+          if flutter build apk --release; then
+            cp build/app/outputs/flutter-apk/app-release.apk MY_NajotLink.apk
+          else
+            flutter build apk --debug
+            cp build/app/outputs/flutter-apk/app-debug.apk MY_NajotLink.apk
+          fi
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MY_NajotLink-apk-cli
+          path: mobile_app_flutter/MY_NajotLink.apk
+          if-no-files-found: error
