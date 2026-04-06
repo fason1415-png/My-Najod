@@ -1,0 +1,8 @@
+[
+  {"id":"USR-001","full_name":"Qodir ota Jalolov","phone":"+998901112233","category":"Keksalar","address":"Toshkent sh., Yunusobod 12-uy","emergency_contact":"Dilnoza Jalolova +998901234567","assigned_device_id":"DEV-001","status":"Qabul qilindi","notes":"Yurak bosimi tez-tez ko‘tariladi."},
+  {"id":"USR-002","full_name":"Saodat opa Usmonova","phone":"+998935556677","category":"Ko‘zi ojizlar","address":"Andijon, Marhamat tumani","emergency_contact":"Javlonbek Usmonov +998937778899","assigned_device_id":"DEV-002","status":"Jarayonda","notes":"Voice interaction faollashtirilgan."},
+  {"id":"USR-003","full_name":"Sodiqjon Ermatov","phone":"+998915551100","category":"Nogironlar","address":"Samarqand sh., Registon ko‘chasi 44","emergency_contact":"Mavluda Ermatova +998919998877","assigned_device_id":"DEV-003","status":"Qabul qilindi","notes":"Harakat cheklangan, tez yordam prioritet."},
+  {"id":"USR-004","full_name":"Zuhra Jo‘rayeva","phone":"+998977007788","category":"Chekka hudud aholisi","address":"Surxondaryo, Termiz tumani","emergency_contact":"Umar Jo‘rayev +998909991122","assigned_device_id":"DEV-004","status":"Qabul qilindi","notes":"Signal zaif hudud."},
+  {"id":"USR-005","full_name":"Shuhrat aka Mamatqulov","phone":"+998995005050","category":"Keksalar","address":"Farg‘ona, Marg‘ilon","emergency_contact":"Zarnigor Mamatqulova +998905558899","assigned_device_id":"DEV-005","status":"Yakunlandi","notes":"Oldingi holatda yiqilish bo‘lgan."},
+  {"id":"USR-006","full_name":"Mahliyo Karimova","phone":"+998939990001","category":"Nogironlar","address":"Buxoro sh., G‘ijduvon yo‘li","emergency_contact":"Temur Karimov +998938881100","assigned_device_id":"DEV-006","status":"Qabul qilindi","notes":"Operator bilan tez bog‘lanish talab etiladi."}
+]
