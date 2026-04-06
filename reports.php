@@ -1,0 +1,14 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__.'/includes/auth.php';
+require_once __DIR__.'/includes/functions.php';
+require_login();
+$alerts=db_read('alerts');$users=db_read('users');$devices=db_read('devices');$logs=array_reverse(db_read('logs'));
+if(isset($_GET['export'])){$type=(string)$_GET['export'];if($type==='alerts_json'){header('Content-Type: application/json; charset=UTF-8');header('Content-Disposition: attachment; filename="alerts-export.json"');echo json_encode($alerts,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);exit;}if($type==='alerts_csv'){header('Content-Type: text/csv; charset=UTF-8');header('Content-Disposition: attachment; filename="alerts-export.csv"');$out=fopen('php://output','w');fputcsv($out,['alert_id','user_id','device_id','voice_text','ai_result','urgency','confidence','service','latitude','longitude','created_at','status','operator_comment']);foreach($alerts as $a){fputcsv($out,[$a['alert_id']??'',$a['user_id']??'',$a['device_id']??'',$a['voice_text']??'',$a['ai_result']??'',$a['urgency']??'',$a['confidence']??'',$a['service']??'',$a['latitude']??'',$a['longitude']??'',$a['created_at']??'',$a['status']??'',$a['operator_comment']??'']);}fclose($out);exit;}}
+$pageTitle='Hisobotlar';$currentPage='reports.php';include __DIR__.'/includes/header.php';include __DIR__.'/includes/sidebar.php';
+?>
+<main class="main-wrap"><?php include __DIR__.'/includes/navbar.php'; ?>
+<section class="grid cols-4"><article class="card metric blue"><div class="label">Jami foydalanuvchi</div><div class="value" data-counter="<?= count($users) ?>">0</div></article><article class="card metric purple"><div class="label">Jami qurilma</div><div class="value" data-counter="<?= count($devices) ?>">0</div></article><article class="card metric red"><div class="label">Jami alert</div><div class="value" data-counter="<?= count($alerts) ?>">0</div></article><article class="card metric green"><div class="label">Log yozuvlari</div><div class="value" data-counter="<?= count($logs) ?>">0</div></article></section>
+<section class="card"><div class="toolbar"><h3 style="margin:0;">Export markazi</h3><div class="actions"><a class="btn primary" href="reports.php?export=alerts_json">Alert JSON</a><a class="btn success" href="reports.php?export=alerts_csv">Alert CSV</a></div></div></section>
+<section class="card"><h3 style="margin-top:0;">Tizim loglari</h3><div class="table-wrap"><table><thead><tr><th>ID</th><th>Turi</th><th>Xabar</th><th>Vaqt</th></tr></thead><tbody><?php foreach(array_slice($logs,0,40) as $log): ?><tr><td><?= h($log['id']??'-') ?></td><td><?= h($log['type']??'-') ?></td><td><?= h($log['message']??'-') ?></td><td><?= h($log['created_at']??'-') ?></td></tr><?php endforeach; ?></tbody></table></div></section>
+</main><?php include __DIR__.'/includes/footer.php'; ?>
