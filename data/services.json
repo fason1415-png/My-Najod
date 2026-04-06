@@ -1,0 +1,7 @@
+[
+  {"service_id":"SRV-001","name":"Tez yordam","hotline":"103","region":"Surxondaryo","sla_minutes":7,"status":"Qabul qilindi","description":"Tibbiy shoshilinch holatlar uchun."},
+  {"service_id":"SRV-002","name":"Militsiya","hotline":"102","region":"Respublika bo‘ylab","sla_minutes":9,"status":"Qabul qilindi","description":"Xavfsizlik va hujum holatlari uchun."},
+  {"service_id":"SRV-003","name":"Yong‘in xizmati","hotline":"101","region":"Respublika bo‘ylab","sla_minutes":6,"status":"Qabul qilindi","description":"Yong‘in, tutun va olov holatlari uchun."},
+  {"service_id":"SRV-004","name":"Maslahat / Operator","hotline":"1173","region":"Call-center","sla_minutes":3,"status":"Qabul qilindi","description":"Noaniq holatlarda operator tasnifi."},
+  {"service_id":"SRV-005","name":"Psixologik yordam liniyasi","hotline":"1191","region":"Surxondaryo va viloyatlar","sla_minutes":12,"status":"Jarayonda","description":"Stress va qo‘rquv holatlari uchun."}
+]
