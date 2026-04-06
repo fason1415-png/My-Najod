@@ -1,0 +1,8 @@
+[
+  {"device_id":"DEV-001","device_name":"NajotLink Band A1","sim_number":"+998950000001","battery_level":92,"gps_status":"Faol","microphone_status":"Faol","last_signal_at":"2026-04-06 09:14:12","assigned_user_id":"USR-001","status":"Qabul qilindi"},
+  {"device_id":"DEV-002","device_name":"NajotLink Clip Vision","sim_number":"+998950000002","battery_level":74,"gps_status":"Faol","microphone_status":"Faol","last_signal_at":"2026-04-06 09:12:48","assigned_user_id":"USR-002","status":"Jarayonda"},
+  {"device_id":"DEV-003","device_name":"NajotLink Home SOS Mini","sim_number":"+998950000003","battery_level":65,"gps_status":"Faol","microphone_status":"Faol","last_signal_at":"2026-04-06 09:09:02","assigned_user_id":"USR-003","status":"Qabul qilindi"},
+  {"device_id":"DEV-004","device_name":"NajotLink Rural LTE","sim_number":"+998950000004","battery_level":48,"gps_status":"Faol","microphone_status":"Nofaol","last_signal_at":"2026-04-06 08:58:31","assigned_user_id":"USR-004","status":"Jarayonda"},
+  {"device_id":"DEV-005","device_name":"NajotLink Wrist Guard","sim_number":"+998950000005","battery_level":87,"gps_status":"Faol","microphone_status":"Faol","last_signal_at":"2026-04-06 09:03:55","assigned_user_id":"USR-005","status":"Yakunlandi"},
+  {"device_id":"DEV-006","device_name":"NajotLink Smart Tag","sim_number":"+998950000006","battery_level":55,"gps_status":"Nofaol","microphone_status":"Faol","last_signal_at":"2026-04-06 08:47:10","assigned_user_id":"USR-006","status":"Qabul qilindi"}
+]
