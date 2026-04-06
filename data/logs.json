@@ -1,0 +1,7 @@
+[
+  {"id":"LOG-0001","type":"system","message":"MY NajotLink demo muhit ishga tushirildi.","created_at":"2026-04-04 09:00:00"},
+  {"id":"LOG-0002","type":"auth","message":"Administrator tizimga kirdi.","created_at":"2026-04-06 08:55:22"},
+  {"id":"LOG-0003","type":"alerts","message":"ALT-001 uchun AI classify ishlatildi.","created_at":"2026-04-06 09:01:34"},
+  {"id":"LOG-0004","type":"operator","message":"ALT-003 holati Jarayonda deb yangilandi.","created_at":"2026-04-06 09:05:41"},
+  {"id":"LOG-0005","type":"finance","message":"Moliyaviy dashboard sinxronlandi.","created_at":"2026-04-06 09:08:10"}
+]
