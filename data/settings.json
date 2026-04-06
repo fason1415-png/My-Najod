@@ -1,0 +1,13 @@
+{
+  "app_name": "MY NajotLink",
+  "default_language": "uz-Latn",
+  "operator_phone": "+998 71 203 11 73",
+  "auto_ai_enabled": true,
+  "notify_family": true,
+  "map_provider": "Google Maps",
+  "theme_mode": "Dark Premium",
+  "demo_mode": true,
+  "openai_enabled": false,
+  "openai_model": "gpt-4.1-mini",
+  "openai_api_key": ""
+}
