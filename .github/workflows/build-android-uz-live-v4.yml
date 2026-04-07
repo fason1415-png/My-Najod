@@ -1,0 +1,64 @@
+name: Build Android UZ Live V4
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-android-uz-live-v4:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Prepare live v4 files
+        working-directory: mobile_app_flutter
+        shell: bash
+        run: |
+          set -e
+          if [ -f pubspec_live_fixed.yaml ]; then
+            cp pubspec_live_fixed.yaml pubspec.yaml
+          fi
+
+          if [ -f lib/main_uz_live_v3.dart ]; then
+            cp lib/main_uz_live_v3.dart lib/main.dart
+          elif [ -f lib/main_uz_live.dart ]; then
+            cp lib/main_uz_live.dart lib/main.dart
+          fi
+
+          # Endpoint order: v3 -> v2 -> v1
+          sed -i "s/\['sos-create-v2.php', 'sos-create.php'\]/['sos-create-v3.php', 'sos-create-v2.php', 'sos-create.php']/g" lib/main.dart
+
+      - name: Build APK
+        working-directory: mobile_app_flutter
+        shell: bash
+        run: |
+          set -e
+          flutter --version
+          flutter create . --platforms=android
+          if [ -f android_manifest_live.xml ]; then
+            cp android_manifest_live.xml android/app/src/main/AndroidManifest.xml
+          elif [ -f android_manifest_template.xml ]; then
+            cp android_manifest_template.xml android/app/src/main/AndroidManifest.xml
+          fi
+          flutter pub get
+          flutter build apk --release
+          cp build/app/outputs/flutter-apk/app-release.apk MY_NajotLink_UZ_LIVE_V4.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MY_NajotLink-apk-uz-live-v4
+          path: mobile_app_flutter/MY_NajotLink_UZ_LIVE_V4.apk
+          if-no-files-found: error
